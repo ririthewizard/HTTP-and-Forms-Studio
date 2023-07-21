@@ -3,9 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<script>
+	
 	function setSearchEngine() {
-		event.preventDefault();
-		console.log("Hello World!");
+		let form = document.getElementById("searchForm");
+
+		let actions = {
+   		google: "https://www.google.com/",
+		duckDuckGo: "https://duckduckgo.com",
+		bing: "https://www.bing.com/search",
+		ask: "https://www.ask.com",
+		};
+		// event.preventDefault();
+		let selectedEngine = document.querySelector("input[name=engine]:checked");
+
+		let value = selectedEngine.value;
+		console.log(value);
+
+		let action = actions[selectedEngine.value];
+
+		form.setAttribute("action", action);
+		// console.log("Hello World!");
 	}
     window.addEventListener("load", function(){
         let form = document.getElementById("searchForm");
